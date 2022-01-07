@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStore.Domain", "MyStore.Domain\MyStore.Domain.csproj", "{2F764352-38FB-47CF-ACA4-D5905B1C3895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyStore.Domain", "MyStore.Domain\MyStore.Domain.csproj", "{2F764352-38FB-47CF-ACA4-D5905B1C3895}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{48D05C28-0247-42E8-8E76-B2BE478A1113}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{73162976-3B06-4786-A328-7E914C733F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStore.Domain.Tests", "MyStore.Domain.Tests\MyStore.Domain.Tests.csproj", "{D14C330B-F38D-4B98-A0BA-35E219DFCF5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,17 @@ Global
 		{2F764352-38FB-47CF-ACA4-D5905B1C3895}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F764352-38FB-47CF-ACA4-D5905B1C3895}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F764352-38FB-47CF-ACA4-D5905B1C3895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D14C330B-F38D-4B98-A0BA-35E219DFCF5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D14C330B-F38D-4B98-A0BA-35E219DFCF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D14C330B-F38D-4B98-A0BA-35E219DFCF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D14C330B-F38D-4B98-A0BA-35E219DFCF5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2F764352-38FB-47CF-ACA4-D5905B1C3895} = {48D05C28-0247-42E8-8E76-B2BE478A1113}
+		{D14C330B-F38D-4B98-A0BA-35E219DFCF5E} = {73162976-3B06-4786-A328-7E914C733F5F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58CE6C7C-181D-4FBC-9C18-E2AE9EBEE69B}
