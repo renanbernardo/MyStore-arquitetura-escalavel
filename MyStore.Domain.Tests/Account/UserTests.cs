@@ -5,17 +5,15 @@ namespace MyStore.Domain.Tests.Account
 {
     public class UserTests
     {
-        [Fact]
-        public void CanActivateUserTest()
+        [Fact] 
+        public void VerificaUsuario()
         {
-            var user = new User();
+            var verificationCode = "NADA"; // Debugar e colocar o Verification Code gerado ao instanciar
+            var user = new User("renanbernardo", "123456");
+            user.Verify(verificationCode);
 
-            user.Active = true;
-
-            if (user.Verified)
-            {
-                // user Repository.Save(user);
-            }
+            Assert.True(user.Verified);
         }
+     
     }
 }
