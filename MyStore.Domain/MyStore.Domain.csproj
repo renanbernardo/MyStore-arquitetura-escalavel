@@ -12,4 +12,9 @@
     <Folder Include="StoreFront\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DomainNotificationHelper" Version="1.0.1" />
+    <PackageReference Include="DomainNotificationHelper.Validation" Version="1.0.3" />
+  </ItemGroup>
+
 </Project>
