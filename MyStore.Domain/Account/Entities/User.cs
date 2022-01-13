@@ -1,4 +1,5 @@
 ﻿using MyStore.Domain.Account.Enums;
+using MyStore.Domain.Account.Scopes;
 
 namespace MyStore.Domain.Account.Entities;
 
@@ -33,51 +34,39 @@ public class User
 
     public void Register()
     {
+        this.RegisterScopeIsValid();
         Password = EncryptPassword(Password);
     }
 
     public void Verify(string verificationCode)
     {
-        if (verificationCode == VerificationCode)
-            Verified = true;    
+        this.VerificationScopeIsValid(verificationCode);
+        Verified = (verificationCode == VerificationCode);
     }
 
     public void Activate(string activationCode)
     {
-        if (!Verified)
-            return;
-
-        if (activationCode == ActivationCode)
-            Active = true;
+        this.ActivationScopeIsValid(activationCode);
+        Active = (activationCode == ActivationCode);
     }
 
     public void RequestLogin(string userName)
     {
-        if (!Active)
-            return;
-
-        if (!Verified)
-            return;
-
-        if (userName.ToUpper() != Username.ToUpper())
-            return;
-
+        this.RequestLoginScopeIsValid(userName);
         AuthorizationCode = GenerateAutorizationCode();
         LastAuthorizationCodeRequest = DateTime.Now;
     }
 
-    public bool Authenticate(string authorizationCode, string password)
+    public void Authenticate(string authorizationCode, string password)
     {
-        if (!Active)
-            return false;
+        this.LoginScopeIsValid(authorizationCode, EncryptPassword(password));
+        LastLoginDate = DateTime.Now;
+    }
 
-        if (!Verified)
-            return false;
-
-        if (authorizationCode != AuthorizationCode || password != Password)
-            return false;
-
-        return true;
+    public void MakeAdmin()
+    {
+        // TODO Chamar o Scope do UserAsAdmin
+        Role = ERole.Admin;
     }
 
     public string GenerateAutorizationCode()
