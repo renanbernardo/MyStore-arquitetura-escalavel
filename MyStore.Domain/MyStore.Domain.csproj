@@ -17,4 +17,8 @@
     <PackageReference Include="DomainNotificationHelper.Validation" Version="1.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyStore.SharedKernel\MyStore.SharedKernel.csproj" />
+  </ItemGroup>
+
 </Project>

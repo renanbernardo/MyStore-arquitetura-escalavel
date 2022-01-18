@@ -5,9 +5,10 @@ namespace MyStore.Domain.Account.Entities;
 
 public class User
 {
-    public User(string username, string password)
+    public User(string email, string username, string password)
     {
-        Id = Guid.NewGuid();    
+        Id = Guid.NewGuid();  
+        Email = email; // TO-DO VALIDAR O EMAIL
         Username = username;
         Password = password; // Não encripta aqui, pois em alguns lugares irá precisar da senha atual do usuário. Ex: enviar a senha do usuário
         Verified = false;
@@ -23,6 +24,7 @@ public class User
     public Guid Id { get; set; }
     public string Username { get; private set; }
     public string Password { get; private set; }
+    public string Email { get; private set; }
     public bool Verified { get; private set; }
     public bool Active { get; private set; }
     public DateTime LastLoginDate { get; private set; }
