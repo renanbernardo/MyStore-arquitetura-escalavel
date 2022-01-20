@@ -3,7 +3,7 @@ using MyStore.Domain.Account.Scopes;
 using Xunit;
 using Xunit.Categories;
 
-namespace MyStore.Domain.Tests.Account
+namespace MyStore.Domain.Tests.Account.Scopes
 {
     public class UserScopeTests
     {
