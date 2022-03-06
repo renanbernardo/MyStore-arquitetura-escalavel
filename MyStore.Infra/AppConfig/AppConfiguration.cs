@@ -11,8 +11,8 @@ namespace MyStore.Infra.AppConfig
             var path = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
             configurationBuilder.AddJsonFile(path, false);
             var root = configurationBuilder.Build();
-            _connectionStringMyStore = root.GetSection("ConnectionString").GetSection("MyStoreConnectionString").Value;
-            var appSetting = root.GetSection("ApplicationSettings");
+            root.GetSection("ApplicationSettings");
+            _connectionStringMyStore = root.GetSection("ConnectionStrings").GetSection("MyStoreConnectionString").Value;
         }
 
         public string ConnectionStringMyStore

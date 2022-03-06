@@ -1,19 +1,32 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+using MyStore.Domain.Account.Entities;
+using MyStore.Infra.AppConfig;
+using MyStore.Infra.Persistence.Mappings;
 
 namespace MyStore.Infra.Persistence.Contexts
 {
-    public class MyStoreDataContext : DbContext
+    public partial class MyStoreDataContext : DbContext
     {
-        public MyStoreDataContext() : base()
+        private readonly string _myStoreDbConectionString;
+
+        public MyStoreDataContext()
         {
+            _myStoreDbConectionString = new AppConfiguration().ConnectionStringMyStore;
+        }
+
+        public virtual DbSet<User>? Users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(_myStoreDbConectionString);
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserMapping());
         }
     }
 }
