@@ -23,9 +23,9 @@ namespace MyStore.Infra.Repositories.Account
 
         public User GetUserByUsername(string username)
         {
-           return _context.Users
-                .Where(UserSpecs.GetByUsername(username))
-                .FirstOrDefault();
+            return _context.Users
+                 .Where(UserSpecs.GetByUsername(username))
+                 .FirstOrDefault();
         }
 
         public void Save(User user)
